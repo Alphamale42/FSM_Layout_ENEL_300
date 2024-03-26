@@ -1,4 +1,5 @@
 
+#Below is NOT the final code, just psuedo code to further understand how we can get to the final code.
 #include <stdio.h>
 
 typedef enum {
@@ -8,23 +9,47 @@ typedef enum {
 
 HeatingState getNextState(HeatingState curState) {
   switch(curState) {
-    case X
+    case ON:  
+      
+      TurnHeaterOn(); // Need this to send data to circuit to turn it ON; this is different than OFF / ON state variables.
+      startTimer();
+      TempRead();
+      if(temp > threshold) {
+        return OFF; // Returns 'OFF' state var. listed in enum
+      }
+      default:
+        return OFF;
+    case OFF:
+      startTimer();
+      if(temp < threshold) {
+        return ON;   
+      }  
+      default:
+        return ON;
 
-    case Y
-
-
-    case Z
+  
   }
 
-]
+}
 
+void printState(HeatingState state) {
+    switch (state) {
+        case ON:
+            printf("Heater is ON\n");
+            break;
+        case OFF:
+            printf("Heater is OFF\n");
+            break;
+      
+    }
+}
 
 
 int main() {
-  Heating
+  HeatingState StartingPoint = OFF;
   for(int i = 0; i < 10; i++) {
       printState(currentState);
       CurrentState = getNextState(currentState);
   }
-
+  return 0;
 }
