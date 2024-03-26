@@ -1,0 +1,30 @@
+
+#include <stdio.h>
+
+typedef enum {
+  ON, 
+  OFF
+} HeatingState;
+
+HeatingState getNextState(HeatingState curState) {
+  switch(curState) {
+    case X
+
+    case Y
+
+
+    case Z
+  }
+
+]
+
+
+
+int main() {
+  Heating
+  for(int i = 0; i < 10; i++) {
+      printState(currentState);
+      CurrentState = getNextState(currentState);
+  }
+
+}
