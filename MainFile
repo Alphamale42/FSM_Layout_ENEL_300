@@ -14,14 +14,14 @@ HeatingState getNextState(HeatingState curState) {
       TurnHeaterOn(); // Need this to send data to circuit to turn it ON; this is different than OFF / ON state variables.
       startTimer();
       TempRead();
-      if(temp > threshold) {
+      if(temp > threshold || isTimeout() ) {
         return OFF; // Returns 'OFF' state var. listed in enum
       }
       default:
         return OFF;
     case OFF:
       startTimer();
-      if(temp < threshold) {
+      if(temp < threshold || isTimeout() ) {
         return ON;   
       }  
       default:
